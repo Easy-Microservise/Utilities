@@ -6,7 +6,7 @@
     <Platforms>AnyCPU;x64;x86</Platforms>
     <Authors>Ali Yousefi Telori, Mahdi Delzende</Authors>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.0.0.1</Version>
+    <Version>0.0.0.2</Version>
     <Description>Utilities of tests in programming.</Description>
     <Copyright>EasyMicroservice@gmail.com</Copyright>
     <PackageTags>utility,utilities,test,tests</PackageTags>
