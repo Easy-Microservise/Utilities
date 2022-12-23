@@ -2,7 +2,16 @@
 
   <PropertyGroup>
     <TargetFrameworks>netcoreapp3.1;net6.0;net5.0;net48;net452</TargetFrameworks>
-    <IsPackable>false</IsPackable>
+    <IsPackable>true</IsPackable>
+    <Platforms>AnyCPU;x64;x86</Platforms>
+    <Authors>Ali Yousefi Telori, Mahdi Delzende</Authors>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.0.0.1</Version>
+    <Description>Utilities of tests in programming.</Description>
+    <Copyright>EasyMicroservice@gmail.com</Copyright>
+    <PackageTags>utility,utilities,test,tests</PackageTags>
+    <PackageProjectUrl>https://github.com/Easy-Microservise/Utilities</PackageProjectUrl>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
