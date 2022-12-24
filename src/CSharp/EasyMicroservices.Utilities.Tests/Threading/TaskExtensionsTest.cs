@@ -1,8 +1,7 @@
-using EasyMicroservice.Utilities.Threading.Helpers;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace EasyMicroservice.Utilities.Tests.Threading
+namespace EasyMicroservices.Utilities.Tests.Threading
 {
     public class TaskExtensionsTest
     {

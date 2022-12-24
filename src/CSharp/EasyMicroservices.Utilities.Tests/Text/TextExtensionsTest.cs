@@ -1,7 +1,7 @@
 ﻿using System;
 using Xunit;
 
-namespace EasyMicroservice.Utilities.Tests.Text
+namespace EasyMicroservices.Utilities.Tests.Text
 {
     public class TextExtensionsTest
     {
@@ -14,7 +14,7 @@ namespace EasyMicroservice.Utilities.Tests.Text
         [InlineData("Hello World", "o", 4, new string[] { "Hell", " W", "rld" })]
         [InlineData("Hello World", "d", 1, new string[] { "Hello Worl" })]
         [InlineData("Hello World", "l", 4, new string[] { "He", "o Wor", "d" })]
-        [InlineData("Hello World", "l", 2, new string[] { "He", "o World"})]
+        [InlineData("Hello World", "l", 2, new string[] { "He", "o World" })]
         public void SplitCountTest(string input, string separator, int count, string[] expect)
         {
             var result = input.SplitCount(separator, count);
