@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography;
+﻿using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace EasyMicroservices.Utilities.Text
@@ -13,9 +14,9 @@ namespace EasyMicroservices.Utilities.Text
         /// </summary>
         /// <param name="inputs"></param>
         /// <returns></returns>
-        public static string GetSHA1Hash(this string[] inputs)
+        public static string GetSHA1Hash(this IEnumerable<string> inputs)
         {
-            StringBuilder stringBuilder= new StringBuilder();
+            StringBuilder stringBuilder = new StringBuilder();
             foreach (string input in inputs)
             {
                 stringBuilder.Append(GetSHA1Hash(input));
