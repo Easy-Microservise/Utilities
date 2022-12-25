@@ -50,6 +50,5 @@ namespace System
                 result.Add(endOfString);
             return result.ToArray();
         }
-
     }
 }

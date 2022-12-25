@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace EasyMicroservice.Utilities.Constants
+﻿namespace EasyMicroservices.Utilities.Constants
 {
     /// <summary>
     /// Http headers contants

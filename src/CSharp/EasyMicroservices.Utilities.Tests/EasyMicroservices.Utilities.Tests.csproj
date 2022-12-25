@@ -6,11 +6,11 @@
     <Platforms>AnyCPU;x64;x86</Platforms>
     <Authors>Ali Yousefi Telori, Mahdi Delzende</Authors>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.0.0.2</Version>
+    <Version>0.0.0.1</Version>
     <Description>Utilities of tests in programming.</Description>
-    <Copyright>EasyMicroservice@gmail.com</Copyright>
+    <Copyright>EasyMicroservices@gmail.com</Copyright>
     <PackageTags>utility,utilities,test,tests</PackageTags>
-    <PackageProjectUrl>https://github.com/Easy-Microservise/Utilities</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/EasyMicroservises/Utilities</PackageProjectUrl>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
@@ -30,9 +30,9 @@
     </PackageReference>
     <PackageReference Include="ReportGenerator" Version="5.1.13" />
     <PackageReference Include="xunit" Version="2.4.2" />
-  </ItemGroup> 
- 
+  </ItemGroup>
+
   <ItemGroup>
-    <ProjectReference Include="..\EasyMicroservice.Utilities\EasyMicroservice.Utilities.csproj" />
+    <ProjectReference Include="..\EasyMicroservices.Utilities\EasyMicroservices.Utilities.csproj" />
   </ItemGroup>
 </Project>

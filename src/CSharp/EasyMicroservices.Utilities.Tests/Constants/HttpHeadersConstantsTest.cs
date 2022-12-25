@@ -1,7 +1,7 @@
-﻿using EasyMicroservice.Utilities.Constants;
+﻿using EasyMicroservices.Utilities.Constants;
 using Xunit;
 
-namespace EasyMicroservice.Utilities.Tests.Constants
+namespace EasyMicroservices.Utilities.Tests.Constants
 {
     public class HttpHeadersConstantsTest
     {
