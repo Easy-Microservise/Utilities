@@ -28,26 +28,37 @@ namespace System
         /// <returns></returns>
         public static string[] SplitCount(this string input, string separator, int count)
         {
-            List<string> result = new List<string>();
+            List<string> result = new(count);
             int startIndex = 0;
+            int separatorLength = separator.Length;
             string endOfString = input;
             for (int i = 0; i < count; i++)
             {
                 var index = endOfString.IndexOf(separator);
                 if (index < 0)
+                {
                     break;
-
+                }
+                var separtorIndex = index;
+                if (separtorIndex > 1)
+                {
+                    separtorIndex += separatorLength - 1;
+                }
                 string first = endOfString.Substring(startIndex, index);
-                if (first.Length > separator.Length)
+                if (first.Length > separatorLength)
                 {
                     result.Add(first.Substring(0, first.Length));
                 }
                 else if (first.Length > 0 && first != separator)
+                {
                     result.Add(first);
-                endOfString = endOfString.Substring(index + 1);
+                }
+                endOfString = endOfString.Substring(separtorIndex + 1);
             }
-            if (!string.IsNullOrEmpty(endOfString))
+            if (result.Count < count && !string.IsNullOrEmpty(endOfString))
+            {
                 result.Add(endOfString);
+            }
             return result.ToArray();
         }
     }
