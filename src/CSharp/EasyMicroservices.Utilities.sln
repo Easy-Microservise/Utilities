@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyMicroservices.Utilities
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{2FFCF579-C332-4222-9226-CE4F7B430E44}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application-Layer", "Application-Layer", "{E04E6454-D867-45E9-BC05-A6A38A7B64BC}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Implementations", "Implementations", "{E04E6454-D867-45E9-BC05-A6A38A7B64BC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test-Layer", "Test-Layer", "{3792D18F-1053-41EA-A6C4-B4837995C3BA}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{3792D18F-1053-41EA-A6C4-B4837995C3BA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyMicroservices.Utilities.Tests", "EasyMicroservices.Utilities.Tests\EasyMicroservices.Utilities.Tests.csproj", "{501933C5-B788-4296-8B0D-5211A30A4C07}"
 EndProject
