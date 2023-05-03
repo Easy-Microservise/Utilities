@@ -9,7 +9,7 @@
     <Description>Utilities of programming.</Description>
     <Copyright>EasyMicroservices@gmail.com</Copyright>
     <PackageTags>utility,utilities</PackageTags>
-    <PackageProjectUrl>https://github.com/EasyMicroservises/Utilities</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/EasyMicroservices/Utilities</PackageProjectUrl>
     <LangVersion>latest</LangVersion>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <DocumentationFile>.\bin\$(Configuration)\$(TargetFramework)\EasyMicroservices.Utilities.xml</DocumentationFile>
