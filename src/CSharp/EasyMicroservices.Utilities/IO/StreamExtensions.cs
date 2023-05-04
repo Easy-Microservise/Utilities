@@ -43,5 +43,34 @@ namespace EasyMicroservices.Utilities.IO
             }
             return result;
         }
+
+        /// <summary>
+        /// copy a stream to another
+        /// </summary>
+        /// <param name="fromStream">stream to read</param>
+        /// <param name="writeStream">stream to write</param>
+        /// <param name="length">length of data to read</param>
+        /// <param name="bufferSize">buffer size to read</param>
+        /// <param name="cancellationToken">cancel token</param>
+        public static async Task CopyStreamToStreamAsync(this Stream fromStream, Stream writeStream, long length, int bufferSize, CancellationToken cancellationToken = default)
+        {
+            if (length <= 0)
+                throw new Exception("Length is not valid.");
+            if (fromStream.CanSeek)
+                fromStream.Seek(0, SeekOrigin.Begin);
+            var readBytes = new byte[bufferSize];
+            long writed = 0;
+            while (writed < length)
+            {
+                int readCount;
+                if (readBytes.Length > length - writed)
+                    readBytes = new byte[length - writed];
+                readCount = await fromStream.ReadAsync(readBytes, 0, readBytes.Length, cancellationToken);
+                if (readCount <= 0)
+                    throw new Exception("Client disconnected! I read zero buffer from stream, Maybe stream disposed before I read data.");
+                await writeStream.WriteAsync(readBytes, 0, readCount);
+                writed += readCount;
+            }
+        }
     }
 }
