@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EasyMicroservices.Utilities.IO.Interfaces;
+using System;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
@@ -96,6 +97,31 @@ namespace EasyMicroservices.Utilities.IO
                 await writeStream.WriteAsync(readBytes, 0, readCount);
                 writed += readCount;
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="stream"></param>
+        /// <param name="innerStreamMiddleware"></param>
+        /// <returns></returns>
+        public static Task<Stream> GetMiddlewareReaderStream(this Stream stream, IStreamMiddleware innerStreamMiddleware = default)
+        {
+            if (innerStreamMiddleware != null)
+                return innerStreamMiddleware.GetReaderStream(stream);
+            return Task.FromResult(stream);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="stream"></param>
+        /// <param name="innerStreamMiddleware"></param>
+        /// <returns></returns>
+        public static Task<Stream> GetMiddlewareWriterStream(this Stream stream, IStreamMiddleware innerStreamMiddleware = default)
+        {
+            if (innerStreamMiddleware != null)
+                return innerStreamMiddleware.GetWriterStream(stream);
+            return Task.FromResult(stream);
         }
     }
 }
