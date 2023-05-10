@@ -45,6 +45,31 @@ namespace EasyMicroservices.Utilities.IO
         }
 
         /// <summary>
+        /// convert a stream to byte array
+        /// </summary>
+        /// <param name="fromStream">stream to read</param>
+        /// <param name="bufferSize">buffer size to read</param>
+        /// <param name="cancellationToken">cancel token</param>
+        /// <returns>byte array readed from stream</returns>
+        public static async Task<byte[]> StreamToBytesAsync(this Stream fromStream, int bufferSize, CancellationToken cancellationToken = default)
+        {
+            if (fromStream.CanSeek)
+                fromStream.Seek(0, SeekOrigin.Begin);
+            using MemoryStream result = new MemoryStream();
+            var readBytes = new byte[bufferSize];
+            do
+            {
+                int readCount;
+                readCount = await fromStream.ReadAsync(readBytes, 0, readBytes.Length, cancellationToken);
+                if (readCount <= 0)
+                    break;
+                await result.WriteAsync(readBytes, 0, readCount);
+            }
+            while (true);
+            return result.ToArray();
+        }
+
+        /// <summary>
         /// copy a stream to another
         /// </summary>
         /// <param name="fromStream">stream to read</param>
