@@ -14,10 +14,16 @@ namespace EasyMicroservices.Utilities.IO.Interfaces
         /// </summary>
         public IStreamMiddleware InnerStreamMiddleware { get; set; }
         /// <summary>
-        /// get stream
+        /// get reader stream
         /// </summary>
         /// <param name="stream"></param>
         /// <returns></returns>
-        public Task<Stream> GetStream(Stream stream);
+        public Task<Stream> GetReaderStream(Stream stream);
+        /// <summary>
+        /// get writer stream
+        /// </summary>
+        /// <param name="stream"></param>
+        /// <returns></returns>
+        public Task<Stream> GetWriterStream(Stream stream);
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EasyMicroservices.Utilities.IO.Interfaces;
+using System;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
@@ -45,6 +46,31 @@ namespace EasyMicroservices.Utilities.IO
         }
 
         /// <summary>
+        /// convert a stream to byte array
+        /// </summary>
+        /// <param name="fromStream">stream to read</param>
+        /// <param name="bufferSize">buffer size to read</param>
+        /// <param name="cancellationToken">cancel token</param>
+        /// <returns>byte array readed from stream</returns>
+        public static async Task<byte[]> StreamToBytesAsync(this Stream fromStream, int bufferSize, CancellationToken cancellationToken = default)
+        {
+            if (fromStream.CanSeek)
+                fromStream.Seek(0, SeekOrigin.Begin);
+            using MemoryStream result = new MemoryStream();
+            var readBytes = new byte[bufferSize];
+            do
+            {
+                int readCount;
+                readCount = await fromStream.ReadAsync(readBytes, 0, readBytes.Length, cancellationToken);
+                if (readCount <= 0)
+                    break;
+                await result.WriteAsync(readBytes, 0, readCount);
+            }
+            while (true);
+            return result.ToArray();
+        }
+
+        /// <summary>
         /// copy a stream to another
         /// </summary>
         /// <param name="fromStream">stream to read</param>
@@ -71,6 +97,31 @@ namespace EasyMicroservices.Utilities.IO
                 await writeStream.WriteAsync(readBytes, 0, readCount);
                 writed += readCount;
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="stream"></param>
+        /// <param name="innerStreamMiddleware"></param>
+        /// <returns></returns>
+        public static Task<Stream> GetMiddlewareReaderStream(this Stream stream, IStreamMiddleware innerStreamMiddleware = default)
+        {
+            if (innerStreamMiddleware != null)
+                return innerStreamMiddleware.GetReaderStream(stream);
+            return Task.FromResult(stream);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="stream"></param>
+        /// <param name="innerStreamMiddleware"></param>
+        /// <returns></returns>
+        public static Task<Stream> GetMiddlewareWriterStream(this Stream stream, IStreamMiddleware innerStreamMiddleware = default)
+        {
+            if (innerStreamMiddleware != null)
+                return innerStreamMiddleware.GetWriterStream(stream);
+            return Task.FromResult(stream);
         }
     }
 }
