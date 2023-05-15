@@ -66,7 +66,7 @@ namespace System
             {
                 if (handleFunc != null)
                     return handleFunc(ex);
-                throw ex;
+                throw;
             }
         }
     }
