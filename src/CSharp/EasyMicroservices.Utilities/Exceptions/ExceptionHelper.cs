@@ -16,7 +16,7 @@ namespace System
         /// <typeparam name="T"></typeparam>
         /// <param name="source"></param>
         /// <param name="name"></param>
-        public static void ThrowIfNull<T>(this T source, string name)
+        public static void ThrowIfNull<T>(this T source, string name = default)
             where T : class
         {
             if (source == null)
@@ -56,7 +56,7 @@ namespace System
         /// <param name="func"></param>
         /// <param name="handleFunc"></param>
         /// <returns></returns>
-        public static async Task<T> ExceptionHandler<T>(Func<Task<T>> func, Func<Exception, T> handleFunc)
+        public static async Task<T> ExceptionHandler<T>(Func<Task<T>> func, Func<Exception, T> handleFunc = default)
         {
             try
             {
