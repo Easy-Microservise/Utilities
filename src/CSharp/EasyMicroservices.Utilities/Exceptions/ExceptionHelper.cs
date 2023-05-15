@@ -1,8 +1,7 @@
-﻿using System;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Collections;
-using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace System
 {
@@ -47,6 +46,27 @@ namespace System
                 }
                 else
                     throw new NullReferenceException($"{nameof(source)} of type IEnumerable<{typeof(T).FullName}>");
+            }
+        }
+
+        /// <summary>
+        /// handle a function exception as result
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="func"></param>
+        /// <param name="handleFunc"></param>
+        /// <returns></returns>
+        public static async Task<T> ExceptionHandler<T>(Func<Task<T>> func, Func<Exception, T> handleFunc)
+        {
+            try
+            {
+                return await func();
+            }
+            catch (Exception ex)
+            {
+                if (handleFunc != null)
+                    return handleFunc(ex);
+                throw ex;
             }
         }
     }
