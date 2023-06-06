@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System;
 
 namespace System.Linq
 {
@@ -29,6 +28,21 @@ namespace System.Linq
         public static bool IsNullOrEmpty<TSource>(this IEnumerable<TSource> source)
         {
             return source == null || !source.Any();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="TSource"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <param name="source"></param>
+        /// <param name="selector"></param>
+        /// <returns></returns>
+        public static TResult FirstOrDefaultSelect<TSource, TResult>(this IEnumerable<TSource> source, Func<TSource, TResult> selector)
+        {
+            if (source == null)
+                return default;
+            return source.Select(selector).FirstOrDefault();
         }
     }
 }
