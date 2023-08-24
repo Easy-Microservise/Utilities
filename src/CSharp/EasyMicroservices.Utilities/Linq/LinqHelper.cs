@@ -25,7 +25,18 @@ namespace System.Linq
         /// <typeparam name="TSource"></typeparam>
         /// <param name="source"></param>
         /// <returns></returns>
-        public static bool IsNullOrEmpty<TSource>(this IEnumerable<TSource> source)
+        public static bool HasAny<TSource>(this IEnumerable<TSource> source)
+        {
+            return source != null && source.Any();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="TSource"></typeparam>
+        /// <param name="source"></param>
+        /// <returns></returns>
+        public static bool IsEmpty<TSource>(this IEnumerable<TSource> source)
         {
             return source == null || !source.Any();
         }
