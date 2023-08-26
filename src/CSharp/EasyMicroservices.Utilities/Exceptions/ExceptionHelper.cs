@@ -38,7 +38,7 @@ namespace System
         /// <param name="name"></param>
         public static void ThrowIfNullOrEmpty<T>(this IEnumerable<T> source, string name = default)
         {
-            if (source.IsNullOrEmpty())
+            if (source.IsEmpty())
             {
                 if (name.HasValue())
                 {
