@@ -5,12 +5,12 @@ namespace EasyMicroservices.Domain.Contracts.Common
     /// <summary>
     /// /
     /// </summary>
-    public class AmountContract
+    public class PriceContract
     {
         /// <summary>
         /// 
         /// </summary>
-        public decimal Value { get; set; }
+        public decimal Amount { get; set; }
         /// <summary>
         /// 
         /// </summary>
