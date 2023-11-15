@@ -1,9 +1,13 @@
-﻿namespace EasyMicroservices.Domain.DataTypes
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace EasyMicroservices.Domain.DataTypes
 {
     /// <summary>
     /// 
     /// </summary>
-    public enum PriceType : byte
+    public enum CountingUnitType : byte
     {
         /// <summary>
         /// value is none, Never use the None to return values
@@ -30,13 +34,8 @@
         /// </summary>
         Nothing = 5,
         /// <summary>
-        /// مالیات ارزش افزوده
-        /// VAT
-        /// </summary>
-        ValueAddedTax = 6,
-        /// <summary>
         /// 
         /// </summary>
-        ObjectPrice = 7
+        Number = 6
     }
 }
