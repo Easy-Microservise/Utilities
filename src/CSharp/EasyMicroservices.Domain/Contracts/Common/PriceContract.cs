@@ -14,7 +14,7 @@ namespace EasyMicroservices.Domain.Contracts.Common
         /// <summary>
         /// 
         /// </summary>
-        public AmountType AmountType { get; set; }
+        public AmountType AmountType { get; set; } = AmountType.Decimal;
         /// <summary>
         /// 
         /// </summary>
@@ -22,6 +22,6 @@ namespace EasyMicroservices.Domain.Contracts.Common
         /// <summary>
         /// 
         /// </summary>
-        public PriceType Type { get; set; }
+        public PriceType Type { get; set; } = PriceType.ObjectPrice;
     }
 }

@@ -6,8 +6,32 @@ namespace EasyMicroservices.Domain.DataTypes
     /// Enumeration of ISO 4217 currency codes, indexed with their respective ISO 4217 numeric currency codes. 
     /// Only codes support in .Net with RegionInfo objects are listed
     /// </summary>
-    public enum CurrencyCodeType
+    public enum CurrencyCodeType : int
     {
+        /// <summary>
+        /// value is none, Never use the None to return values
+        /// </summary>
+        None = 0,
+        /// <summary>
+        /// error value is default
+        /// </summary>
+        Default = 1,
+        /// <summary>
+        /// for the filter values from web admin panel you can sent all for types
+        /// </summary>
+        All = 2,
+        /// <summary>
+        /// there is other error that is not in the types
+        /// </summary>
+        Other = 3,
+        /// <summary>
+        /// the error type is uknown to us
+        /// </summary>
+        Unknown = 4,
+        /// <summary>
+        /// there is nothing to show or validate error
+        /// </summary>
+        Nothing = 5,
         /// <summary>
         /// 
         /// </summary>
