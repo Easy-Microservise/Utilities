@@ -14,6 +14,14 @@ namespace EasyMicroservices.Domain.Contracts.Common
         /// <summary>
         /// 
         /// </summary>
+        public AmountType AmountType { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
         public CurrencyCodeType CurrencyCode { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public PriceType Type { get; set; }
     }
 }
