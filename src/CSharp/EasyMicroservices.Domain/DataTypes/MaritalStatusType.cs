@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public enum GenderType : byte
+    public enum MaritalStatusType : byte
     {
         /// <summary>
         /// value is none, Never use the None to return values
@@ -32,10 +32,10 @@
         /// <summary>
         /// 
         /// </summary>
-        Male = 6,
+        Married = 6,
         /// <summary>
         /// 
         /// </summary>
-        Female = 7
+        Single = 7
     }
 }
